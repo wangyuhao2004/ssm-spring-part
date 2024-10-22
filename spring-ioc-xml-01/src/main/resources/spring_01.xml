@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        可以使用无参构造函数实例化的组件,进行ioc配置
+    -->
+    <bean id="happyComponent1" class="com.wang.ioc_01.HappyComponent" />
+    <bean id="happyComponent2" class="com.wang.ioc_01.HappyComponent" />
+
+    <!--
+        静态工厂类声明工厂方法进行ioc配置
+        id = 组件的标识
+        class = 工厂类的全限定符
+        factory-method 工厂类的静态方法
+    -->
+    <bean id="clientService" class="com.wang.ioc_01.ClientService" factory-method="clientInstance"/>
+
+    <!--
+        非静态工厂类声明工厂方法进行ioc配置
+            1.配置工厂类的组件信息
+            2.通过指定非静态工厂对象和方法名,进行ioc配置
+    -->
+    <bean id="defaultServiceLocator" class="com.wang.ioc_01.DefaultServiceLocator"/>
+    <bean id="clientService2" factory-bean="defaultServiceLocator" factory-method="createClientServiceInstance"/>
+</beans>

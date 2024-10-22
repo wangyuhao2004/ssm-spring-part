@@ -1,0 +1,32 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="JavadocDeclaration" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ADDITIONAL_TAGS" value="Author,PackageName:com.wang.ioc_01,Date,PackageName:com.wang.com.wang.ioc_02,PackageName:com.wang.ioc_02,PackAgeName:com.wang.ioc_02,Author:,Date:,descriptions,descriptions:" />
+    </inspection_tool>
+    <inspection_tool class="VulnerableLibrariesLocal" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="isIgnoringEnabled" value="true" />
+      <option name="ignoredModules">
+        <list>
+          <option value="ssm-spring-part" />
+          <option value="ssm-spring-part" />
+          <option value="ssm-spring-part" />
+        </list>
+      </option>
+      <option name="ignoredPackages">
+        <list>
+          <option value="org.springframework:spring-expression:6.0.6" />
+          <option value="com.google.protobuf:protobuf-java:3.11.4" />
+          <option value="mysql:mysql-connector-java:8.0.25" />
+        </list>
+      </option>
+      <option name="ignoredReasons">
+        <list>
+          <option value="进行中" />
+          <option value="其他" />
+          <option value="进行中" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 引用和被引用的组件,必须全部都在ioc容器当中 -->
+
+    <!-- 1. 单个构造参数注入 -->
+
+    <!-- 2.将他们都存放在ioc容器 -->
+    <bean id="userDao" class="com.wang.ioc_02.UserDao"/>
+    <bean id="userService1" class="com.wang.ioc_02.UserService">
+        <!-- 构造参数传值 di的配置
+        constructor-arg 构造参数传值的 di配置
+        value = 直接属性值  string ,int
+        ref = 引用的其他bean beanId
+        -->
+        <constructor-arg  ref="userDao"/>
+    </bean>
+
+    <bean id="userService2" class="com.wang.ioc_02.UserService">
+        <!--多个参数注入-->
+        <constructor-arg name="name" value="张三"/>
+        <constructor-arg name="age" value="18"/>
+        <constructor-arg name="userDao" ref="userDao"/>
+    </bean>
+
+    <!-- 基于setter方法依赖注入 -->
+    <bean id="movieFinder" class="com.wang.ioc_02.MovieFinder"/>
+    <bean id="simpleMovieLister" class="com.wang.ioc_02.SimpleMovieLister">
+        <!-- 采用property标签 -->
+        <property name="movieFinder" ref="movieFinder"/>
+        <property name="movieName" value="流浪"/>
+    </bean>
+
+
+</beans>
